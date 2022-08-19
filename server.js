@@ -68,9 +68,9 @@ app.get('/api/:name',(request,response)=>{
     const stateName = request.params.name
 
     if( rappers[rapperName] ){
-        response.json(rappers)
+        response.json(states)
     }else{
-        response.json(rappers)
+        response.json(states)
     }
     
 })
