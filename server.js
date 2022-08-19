@@ -463,14 +463,18 @@ app.get('/', (request, response)=>{
 })
 
 app.get('/api/:name',(request,response)=>{
-    const stateName = request.params.name
+    const entry = request.params.name
+    const stateName = entry[0].toUpperCase() + entry.slice(1)
 
-    if( rappers[rapperName] ){
-        response.json(states)
+    if(states.some(x => x.State == stateName)){
+        response.json(states.find(x => x.State == stateName))
     }else{
-        response.json(states)
+        response.json(`${stateName} is not a state`)
     }
     
+})
+app.get('/api',(request,response)=>{
+        response.json(states)   
 })
 
 app.listen(process.env.PORT || PORT, ()=>{
