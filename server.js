@@ -5,7 +5,7 @@ const PORT = 8000
 
 app.use(cors())
 
-const rappers = [
+const states = [
 { value: 'AK', name: 'Alaska'},
 { value: 'TX', name: 'Texas'},
 { value: 'AL', name: 'Alabama'},
@@ -37,18 +37,18 @@ const rappers = [
 { value: 'NC', name: 'NorthCarolina'},
 { value: 'ND', name: 'NorthDakota'},
 { value: 'NE', name: 'Nebraska'},
-{ value: 'NH', name: 'NewHampshire'},
-{ value: 'NJ', name: 'NewJersey'},
-{ value: 'NM', name: 'NewMexico'},
+{ value: 'NH', name: 'New Hampshire'},
+{ value: 'NJ', name: 'New Jersey'},
+{ value: 'NM', name: 'New Mexico'},
 { value: 'NV', name: 'Nevada'},
-{ value: 'NY', name: 'NewYork'},
+{ value: 'NY', name: 'New York'},
 { value: 'OH', name: 'Ohio'},
 { value: 'OK', name: 'Oklahoma'},
 { value: 'OR', name: 'Oregon'},
 { value: 'PA', name: 'Pennsylvania'},
-{ value: 'RI', name: 'RhodeIsland'},
-{ value: 'SC', name: 'SouthCarolina'},
-{ value: 'SD', name: 'SouthDakota'},
+{ value: 'RI', name: 'Rhode Island'},
+{ value: 'SC', name: 'South Carolina'},
+{ value: 'SD', name: 'Sout hDakota'},
 { value: 'TN', name: 'Tennessee'},
 { value: 'TX', name: 'Texas'},
 { value: 'UT', name: 'Utah'},
@@ -56,7 +56,7 @@ const rappers = [
 { value: 'VT', name: 'Vermont'},
 { value: 'WA', name: 'Washington'},
 { value: 'WI', name: 'Wisconsin'},
-{ value: 'WV', name: 'WestVirginia'},
+{ value: 'WV', name: 'West Virginia'},
 { value: 'WY', name: 'Wyoming'}
 ]
 
@@ -65,7 +65,7 @@ app.get('/', (request, response)=>{
 })
 
 app.get('/api/:name',(request,response)=>{
-    const rapperName = request.params.name.toLowerCase()
+    const stateName = request.params.name
 
     if( rappers[rapperName] ){
         response.json(rappers)
